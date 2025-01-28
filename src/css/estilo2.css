@@ -24,8 +24,16 @@ body{
 }
 
 section{
-    padding: 3rem;
-    margin: 0; /* Elimina márgenes entre las secciones */
+    padding: 1rem;
+    margin: 1rem 0; /* Elimina márgenes entre las secciones */
+}
+
+section h1 {
+    margin-bottom: 1rem; /* Reduce el espacio debajo del encabezado */
+}
+
+section p {
+    margin-bottom: 0.5rem; /* Reduce el espacio entre párrafos */
 }
 
 header{
@@ -156,11 +164,11 @@ span{
     width: 32vw;
     border-radius: 50%;
     box-shadow: 0 0 25px solid #b74b4b;
-    cursor: pointer;
     transition: 0.2s linear;
 }
 
 .home-img img:hover{
+    transform: scale(1.05);
     font-size: 1.8rem;
     font-weight: 500;
 }
@@ -310,6 +318,7 @@ span{
 
 .sobremi h1{
     font-size: 5rem;
+    justify-content: center;
 }
 
 .sobremi p{
@@ -318,7 +327,7 @@ span{
 
 /* -------------------- SKILLS -------------------- */
 
-.skills{
+.skills, .experiencia{
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -375,4 +384,53 @@ span{
     margin-top: 0.5rem; /* Espaciado entre el ícono y el texto */
     font-size: 1rem;
     color: white;
+}
+
+/* Experiencia */
+
+.experiencia {
+    margin-bottom: 0.5rem; /* Reduce el espacio entre los bloques de experiencia */
+    padding: 1rem; /* Espaciado interno moderado */
+    gap: 1rem; /* Si estás usando flex o grid, controla la separación */
+}
+
+.experiencia-container {
+    display: flex;
+    align-items: center; /* Centra el contenido verticalmente */
+    background-color: rgba(32, 30, 38, 0.8);
+    border-radius: 20px;
+    padding: 0.5rem; /* Reducción de relleno */
+    gap: 0.5rem; /* Espaciado entre el logo y el contenido */
+    width: 100%;
+    max-width: 1200px;
+    margin-bottom: 1rem; /* Reduce el espacio entre cada contenedor */
+}
+
+
+.experiencia h1{
+    font-size: 5rem;
+}
+
+.experiencia p{
+    font-size: 1.5rem;
+}
+
+.experiencia-logo{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.experiencia-logo img{
+    width: 100%;
+    max-width: 150px;
+    max-height: 150px;
+    border-radius: 20px;
+    box-shadow: 0 0 15px #b74b4b; /* Sombra de color */
+    transition: 0.3s ease;
+}
+
+.experiencia-logo img:hover{
+    transform: scale(1.05);
 }

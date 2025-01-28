@@ -1,11 +1,14 @@
-const navLinks = document.querySelectorAll("nav a");
+document.addEventListener('DOMContentLoaded', () => {
+    const navLinks = document.querySelectorAll("nav a");
 
     // Función para verificar en qué sección está el usuario
     function setActiveLink() {
         let fromTop = window.scrollY;
 
         navLinks.forEach(link => {
+            if (!link.hash) return; // Ignorar enlaces sin hash
             let section = document.querySelector(link.hash);
+            if (!section) return; // Ignorar si la sección no existe
 
             if (
                 section.offsetTop <= fromTop + 50 &&
@@ -13,8 +16,11 @@ const navLinks = document.querySelectorAll("nav a");
             ) {
                 navLinks.forEach(link => link.classList.remove("active"));
                 link.classList.add("active");
+            } else {
+                link.classList.remove("active");
             }
         });
     }
 
     window.addEventListener("scroll", setActiveLink);
+});
