@@ -1,125 +1,436 @@
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@619&display=swap');
 
 *{
-    box-sizing: border-box;
-    font-family: 'Work Sans';
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    font-family: 'Poppins', sans-serif;
 }
 
 html{
-    /* Deslizar cuando hago click en los links del menu */
+    font-size: 62,5%;
     scroll-behavior: smooth;
 }
 
-/* ------------------- Menu ------------------- */
-
-.contenedor-header{
-    background: #1e2326;
-    position: fixed;
+body{
     width: 100%;
-    top: 0;
-    left: 0;
-    z-index: 99;
+    height: 100vh;
+    overflow-x: hidden;
+    background-color: black;
+    color: white;
 }
 
-.contenedor-header header{
-    max-width: 1100px;
-    margin: auto;
+section{
+    padding: 1rem;
+    margin: 1rem 0; /* Elimina márgenes entre las secciones */
+}
+
+section h1 {
+    margin-bottom: 1rem; /* Reduce el espacio debajo del encabezado */
+}
+
+section p {
+    margin-bottom: 0.5rem; /* Reduce el espacio entre párrafos */
+}
+
+header{
+    margin-top: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem 10%;
+    background-color: transparent;
+    filter: drop-shadow(10px);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 20px;
+    z-index: 100;
 }
 
-.contenedor-header header .logo a{
-    font-family: 'Work Sans';
-    font-size: 36px;
-    color: #1CB698;
-    text-decoration: none; 
+.logo{
+    font-size: 3rem;
+    color: #b74b4b;
+    font-weight: 800;
+    cursor: pointer;
+    transition: 0.5s ease;
 }
 
-.contenedor-header header ul{
+.logo:hover{
+    transform: scale(1.1);
+}
+
+nav{
+    scroll-behavior: smooth;
+}
+
+nav a{
+    font-size: 1.8rem;
+    color: white;
+    margin-left: 4rem;
+    font-weight: 500;
+    transition: 0.3s ease;
+    border-bottom: 3px solid transparent;
+}
+
+nav a:hover{
+    color: #b74b4b;
+    border-bottom: 3px solid #b74b4b;
+}
+
+nav a.active{
+    color: #b74b4b;
+    border-bottom: 3px solid #b74b4b;
+}
+
+@media(max-width:995px){
+    nav{
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 40%;
+        border-left: 3px solid #b74b4b;
+        border-bottom: 3px solid #b74b4b;
+        border-bottom-left-radius: 2rem;
+        padding: 1rem solid;
+        background-color: #161616;
+        border-top: 0.1rem solid rgba(0,0,0,0.1);
+    }
+
+    nav.active{
+        display: block;
+    }
+
+    nav a{
+        display: block;
+        font-size: 2rem;
+        margin: 3rem;
+    }
+
+    nav a:hover,
+    nav a.active{
+        padding: 1rem;
+        border-radius: 0.5rem;
+        border-bottom: 0.5rem solid #b74b4b;
+    }
+}
+
+/* Seccion Home */
+
+section{
+    min-height: 40vh;
+    padding: 5rem 9% 5rem;
+}
+
+.home{
     display: flex;
-    list-style: none;
+    justify-content: center;
+    align-items: center;
+    gap: 8rem;
+    background-color: black;
 }
 
-.contenedor-header header nav ul li a{
-    text-align: none;
-    color: #fff;
-    margin: 0 15px;
-    padding: 3px;
-    transition: .5s;
-    text-decoration: none;
+.home .home-content p{
+    font-size: 1.5rem;
 }
 
-.contenedor-header header nav ul li a:hover{
-    color: #1CB698;
-} 
-
-.nav-responsive{
-    background-color: #1CB698;
-    color: #fff;
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer; /* Marcar puntero cuando pases por encima*/
-    display: none;
+.home .home-content h1{
+    font-size: 6rem;
+    font-weight: 700;
+    line-height: 1.2;
 }
 
-/* ------------------- SECCION INICIO ------------------- */
+span{
+    color: #b74b4b;
+}
 
-.inicio{
-    background: linear-gradient(to top, rgba(30, 35, 38, 0.8), rgba(30, 35, 38, 1)), url(../../assets/fondo.jpg);
-    background-size: cover;
-    height: 100vh;
-    color: #fff;
+.home-content h3{
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+/* Imagen */
+
+.home-img{
+    border-radius: 50%;
+}
+
+.home-img img{
+    position: relative;
+    width: 32vw;
+    border-radius: 50%;
+    box-shadow: 0 0 25px solid #b74b4b;
+    transition: 0.2s linear;
+}
+
+.home-img img:hover{
+    transform: scale(1.05);
+    font-size: 1.8rem;
+    font-weight: 500;
+}
+/* Iconos */
+.social-icons a{
+    color: white;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 4rem;
+    height: 4rem;
+    background-color: transparent;
+    border: 0.2rem solid #b74b4b;
+    font-size: 2rem;
+    border-radius: 50%;
+    margin: 3rem 1.5rem 3rem;
+    transition: 0.3s ease;
+}
+
+.social-icons a:hover{
+    color: black;
+    background-color: #b74b4b;
+    transform: scale(1.2);
+    box-shadow: 0 0 25px #b74b4b;
+}
+
+.btn{
+    display: inline-flex;
+    padding: 1rem 2.8rem;
+    background-color: black;
+    border-radius: 4rem;
+    font-size: 1.6rem;
+    color: #b74b4b;
+    letter-spacing: 0.3rem;
+    border: 2px solid #b74b4b;
+    transition: 0.3s ease;
+}
+
+.btn:hover{
+    color: black;
+    background-color: #b74b4b;
+    transform: scale(1.2);
+    box-shadow: 0 0 25px #b74b4b;
+}
+
+.typing-text{
+    font-size: 34px;
+    font-weight: 600;
+    min-width: 280px;
+}
+
+.typing-text span{
+    position: relative;
+}
+
+.typing-text span::before{
+    content: "Programador";
+    color: #b74b4b;
+    animation: words 20s infinite;
+}
+
+.typing-text span::after{
+    content: "";
+    background-color: black;
+    position: absolute;
+    width: calc(100% + 8px);
+    height: 100%;
+    border-left: 3px solid black;
+    right: -8;
+    animation: cursor 0.6s infinite;
+}
+
+@keyframes cursor {
+    to{
+        border-left: 3px solid;
+    }
+}
+
+@keyframes words {
+    0%, 33%{
+        content: "Programador";
+    }
+    34%, 66%{
+        content: "Ingeniero";
+    }
+    67%, 100%{
+        content: "Scrum Master";
+    }
+}
+
+@media(max-width: 1000px){
+    .home{
+        flex-direction: column;
+        margin: 5rem 4rem;
+    }
+    .home .home-content h3{
+        font-size: 2.5rem;
+    }
+
+    .home .home-content h1{
+        font-size: 5rem;
+    }
+}
+
+/* -------------------- SOBRE MI -------------------- */
+
+.sobremi{
     display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 8rem;
+    background-color: black;
+}
+
+.json-container {
+    background-color: #200606; /* Fondo del bloque */
+    color: #43aee0; /* Color del texto del JSON */
+    padding: 2rem 1rem 1rem 1rem; /* Agregar espacio arriba para los botones */
+    padding: 1rem;
+    border-radius: 1rem;
+    box-shadow: 0 0px 25px #b74b4b; /* Sombra del bloque */
+    font-family: 'Courier New', Courier, monospace; /* Tipografía tipo código */
+    font-size: 1.5rem;
+    width: fit-content;
+    border: 1px solid #2a2a2a; /* Borde para simular un editor */
+    position: relative;
+}
+
+/* Simula botones en la parte superior */
+.json-container::before {
+    content: "";
+    position: absolute;
+    top: 0.5rem;
+    left: 1rem;
+    width: 0.8rem;
+    height: 0.8rem;
+    background-color: #ff5f57; /* Rojo */
+    border-radius: 50%;
+    box-shadow: 1.5rem 0 0 #febc2e, 3rem 0 0 #28c940; /* Amarillo y verde */
+    z-index: 1;
+}
+
+.sobremi span{
+    color: #88DC65;
+}
+
+.sobremi h1{
+    font-size: 5rem;
+    justify-content: center;
+}
+
+.sobremi p{
+    font-size: 1.5rem;
+}
+
+/* -------------------- SKILLS -------------------- */
+
+.skills, .experiencia{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 8rem;
+    background-color: black;
+}
+
+.skills h1{
+    font-size: 5rem;
+}
+
+.skills p{
+    font-size: 1.5rem;
+}
+
+.skills-icons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem
+;}
+
+.skills-icons a{
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 4rem;
+    height: 4rem;
+    background-color: transparent;
+    border: 0.2rem solid #b74b4b;
+    font-size: 2rem;
+    border-radius: 50%;
+    margin: 3rem 1.5rem 3rem;
+    transition: 0.3s ease;
+}
+
+.icon-container {
+    display: flex;
+    flex-direction: column; /* Apila ícono y texto verticalmente */
+    align-items: center; /* Centra el contenido */
+    text-align: center; /* Asegura que el texto esté centrado */
+}
+
+.skills-icons a:hover{
+    color: #161616;
+    background-color: #b74b4b;
+    transform: scale(1.2);
+    box-shadow: 0 0 25px #b74b4b;
+}
+
+.icon-container span {
+    margin-top: 0.5rem; /* Espaciado entre el ícono y el texto */
+    font-size: 1rem;
+    color: white;
+}
+
+/* Experiencia */
+
+.experiencia {
+    margin-bottom: 0.5rem; /* Reduce el espacio entre los bloques de experiencia */
+    padding: 1rem; /* Espaciado interno moderado */
+    gap: 1rem; /* Si estás usando flex o grid, controla la separación */
+}
+
+.experiencia-container {
+    display: flex;
+    align-items: center; /* Centra el contenido verticalmente */
+    background-color: rgba(32, 30, 38, 0.8);
+    border-radius: 20px;
+    padding: 0.5rem; /* Reducción de relleno */
+    gap: 0.5rem; /* Espaciado entre el logo y el contenido */
+    width: 100%;
+    max-width: 1200px;
+    margin-bottom: 1rem; /* Reduce el espacio entre cada contenedor */
+}
+
+
+.experiencia h1{
+    font-size: 5rem;
+}
+
+.experiencia p{
+    font-size: 1.5rem;
+}
+
+.experiencia-logo{
+    flex: 1;
+    display: flex;
+    justify-content: center;
     align-items: center;
 }
 
-.inicio .contenido-banner{
-    padding: 20px;
-    background-color: #1e2326;
-    max-width: 350px;
-    margin: auto;
-    text-align: center;
-    border-radius: 40px;
+.experiencia-logo img{
+    width: 100%;
+    max-width: 150px;
+    max-height: 150px;
+    border-radius: 20px;
+    box-shadow: 0 0 15px #b74b4b; /* Sombra de color */
+    transition: 0.3s ease;
 }
 
-.inicio .contenido-banner img{
-    margin-top: 40px;
-    border: 10px solid #1CB698;
-    display: block;
-    width: 80%;
-    margin: auto;
-    border-radius: 100%;
-}
-
-.inicio .contenido-banner h1{
-    margin-top: 40px;
-    font-size: 42px;
-    font-family: 'Work Sans';
-}
-
-.inicio .contenido-banner h2{
-    font-size: 15px;
-    font-weight: normal;
-}
-
-.inicio .contenido-banner .redes a{
-    color: #fff;
-    display: inline-block;
-    text-decoration: none;
-    border: 1px solid #fff;
-    border-radius: 100%;
-    width: 42px;
-    height: 42px;
-    line-height: 42px;
-    margin: 40px 5px;
-    font-size: 20px;
-    transition: .3s;
-}
-
-.inicio .contenido-banner .redes a:hover{
-    background-color: #1CB698;
+.experiencia-logo img:hover{
+    transform: scale(1.05);
 }
